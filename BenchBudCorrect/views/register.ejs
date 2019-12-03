@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+	<meta charset="UTF-8">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script type="text/javascript" src="BBLoginfunctions.js"></script>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+	<!-- BootStrap CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+	<!-- jQuery, Popper.js and BootStrap JS Plugins-->
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+	<link rel="stylesheet" href="/css/myStyle.css" type="text/css"></link>
+
+</head>
+<body class="text-center">
+	<form action="/register" method="POST">
+	  <img class="mb-4 mt-2" src="dbell.png" alt="" width="150vw" height="150vh">
+	  <div id="mainSignUp">
+	    <h1 class="h3 mb-3 font-weight-normal">You're About To Enter The World of Fitness!</h1>
+		<label for="mainUserName" class="sr-only">New Username</label>
+		<p><input type="text" id="mainUserName" name="mainUserName" class="form-control input" value="" placeholder="New Username" required></p>
+		<div id="passTooShort">
+		</div>
+		<label for="mainPassword" class="sr-only">New Password</label>
+		<p><input type="password" id="mainPassword" name="mainPassword" class="form-control input" value="" placeholder="New Password" required></p>
+		<label for="FirstName" class="sr-only">Enter First Name</label>
+		<p><input type="text" id="FirstName" name="FirstName" class="form-control input" value="" placeholder="Enter First Name" required></p>
+		<label for="LastName" class="sr-only">Enter Last Name</label>
+		<p><input type="text" id="LastName" name="LastName" class="form-control input" value="" placeholder="Enter Last Name" required></p>
+	  </div>
+
+		<h1 class="h5 mb-3 font-weight-normal"> What is Your Main Goal? </h1>
+		<select name="tables" id="goalSelect" class="custom-select input" id="inputGroupSelect01" required>
+		 <option value="Lose Weight">Lose Weight</option>
+		 <option value="Gain Muscle">Gain Muscle</option>
+		 <option value="Tone Up">Tone Up</option>
+		 <option value="Improve Cardio">Improve Cardio</option>
+		 <option value="Increase Strength">Increase Strength</option>
+		</select><br>
+		
+		<h1 class="h5 mb-3 font-weight-normal"> Which Gym do You Use?</h1>
+		 <select id="gymSelect" name="gymSelect"class="custom-select input" required>
+		 </select><br>
+		<button class="mt-2 btn btn-lg btn-primary btn-block button-signup" type="submit">Sign Up</button>
+	  </div>
+    </form>
+    <br>
+    <a class="btn btn-lg btn-primary btn-block mb-2 button-login" href="/login">Log In</a>
+
+<script type="text/javascript">
+    //populating gym data
+	$.ajax({
+		type: "GET",
+		url: "/popGyms",
+		dataType: "html",
+		success: function(info) {
+			console.log("Successfully retrieved gym data");
+            document.getElementById("gymSelect").innerHTML = info;
+        }
+	})
+
+</script>
+
+</body>
+</html>

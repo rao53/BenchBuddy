@@ -1,0 +1,30 @@
+[class*="button-"]{
+	
+	width: 20vw; 
+    display: block;
+    margin-left: auto;
+	margin-right: auto;
+
+}
+
+.button-login {
+	background-color: rgb(255,60,18);
+}
+
+.button-signup {
+	width: 20vw; 
+    display: block;
+    margin-left: auto;
+	margin-right: auto;
+}
+
+[class*="input"]{
+	width: 25vw; 
+    display: block;
+    margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
+
+
+
