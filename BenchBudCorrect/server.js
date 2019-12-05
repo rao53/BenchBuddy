@@ -6,7 +6,7 @@ var app = express();
 var mysql = require('mysql');
 var pass = require('./sqlpass.json');
 var port = "8080";
-var bcrypt = require("bcrypt");
+var bcrypt = require("bcryptjs");
 var passport = require("passport");
 var flash = require("express-flash");
 var session = require("express-session");
@@ -144,7 +144,10 @@ app.get("/popLeader", function(req, res) {
 
 // CORRECT POST REQUEST ENDPOINT USED CORRECTLY TO REGISTER A USER!
 app.post('/register', async (req, res) => {
-    const hashedPassword = await bcrypt.hash(req.body.mainPassword, 10);
+    var salt = bcrypt.genSaltSync(10);
+    var hashedPassword = bcrypt.hashSync(req.body.mainPassword, salt);
+
+    // const hashedPassword = await bcrypt.hash(req.body.mainPassword, 10);
 
     var userName = req.body.mainUserName;
 	var password = hashedPassword;

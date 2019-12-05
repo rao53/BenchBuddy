@@ -1,5 +1,5 @@
 var LocalStrategy = require("passport-local").Strategy
-var bcrypt = require("bcrypt");
+var bcrypt = require("bcryptjs");
 
 
 function initialize(passport, getUserByUserName, getUserById){
@@ -12,7 +12,7 @@ function initialize(passport, getUserByUserName, getUserById){
         }
 
         try{
-            if(await bcrypt.compare(mainPassword, user.Password)){ //might change as the user.mainPassword in this case changes
+            if(bcrypt.compareSync(mainPassword, user.Password)){ //might change as the user.mainPassword in this case changes
                 return done(null, user, {message: "User added correctly!"})
             }else{
                 return done(null, false, {message: "Password incorrect"})
