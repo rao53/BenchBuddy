@@ -1,0 +1,32 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+<body>
+
+<div id="leaderBoard">
+
+<table id="leadTab">
+
+</table>
+
+<a class="btn btn-lg btn-primary btn-block mb-2 button-login" href="/">Go back to Clock in page</a>
+</div>
+
+<script type="text/javascript">
+    //populating leaderboard data
+    $.ajax({
+        type: "GET",
+        url: "/popLeader",
+        dataType: "html",
+        success: function(info) {
+            document.getElementById("leadTab").innerHTML = info;
+            console.log("Leaderboard Updated");
+        }
+    })
+</script>
+
+</body>
+</html>

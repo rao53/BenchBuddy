@@ -30,11 +30,11 @@ CREATE TABLE `users` (
   `lastName` varchar(20) DEFAULT NULL,
   `goals` varchar(50) DEFAULT NULL,
   `gym` varchar(50) DEFAULT NULL,
-  `Points` int(11) DEFAULT NULL,
+  `Points` int(11) DEFAULT '0',
   PRIMARY KEY (`id`),
   UNIQUE KEY `userName` (`userName`),
   KEY `gymName` (`gym`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -43,7 +43,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (18,'ridwan','$2b$10$a0qBYFTBCuKuLlpGU9q4ruGZrJRsDm9qdCjyGnTb7bd5HREnOh7JW','ridwan','ridwan','Lose Weight','Drexel Rec Center',NULL);
+INSERT INTO `users` VALUES (21,'ridwan','$2b$10$osx6t8O3C3C5pfvOoyz.ee67B2BKl62A4RLy.dkC9nHHdJbiZSMBu','Ridwan','Olawin','Lose Weight','Drexel Rec Center',0);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -56,4 +56,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-12-02 23:31:44
+-- Dump completed on 2019-12-04 23:53:06

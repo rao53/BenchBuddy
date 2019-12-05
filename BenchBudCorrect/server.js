@@ -4,7 +4,7 @@ if(process.env.NODE_ENV !== "production"){
 var express = require('express');
 var app = express();
 var mysql = require('mysql');
-var pass = require('../sqlpass.json');
+var pass = require('./sqlpass.json');
 var port = "8080";
 var bcrypt = require("bcrypt");
 var passport = require("passport");
@@ -119,6 +119,27 @@ app.post('/login', checkNotAuthenticated, passport.authenticate('local',{
 app.get('/register', checkNotAuthenticated, (req, res) => {
     res.render("register.ejs");
 })
+
+app.get('/leaderboard', checkAuthenticated, (req, res) => {
+    res.render("leaderboard.ejs");
+})
+
+app.get("/popLeader", function(req, res) {
+	console.log("Server received request, gathering leaderboard");
+	con.query('SELECT * FROM users ORDER BY Points DESC;',
+		function(err,rows,fields) {
+			if (err) {
+				console.log('Error during leaderboard creation');
+			}	
+			else {
+				var leader = "<tr><th>User</th><th>Points</th></tr>";
+				for (i = 0; i < rows.length; i++){
+					leader += "<tr><td>" + rows[i].userName + "</td><td>" + rows[i].Points + "</td></tr>";
+				};
+				res.send(leader);
+			}
+		});
+});
 
 
 // CORRECT POST REQUEST ENDPOINT USED CORRECTLY TO REGISTER A USER!
