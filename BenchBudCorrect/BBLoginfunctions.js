@@ -36,8 +36,10 @@ function calculateDistance(){
 				console.log(dist);
 				if(dist <= 150) {
 					console.log("Starting one hour timer");
+					document.getElementById("clockIn").style.visibility = "hidden";
 					document.getElementById("locCheck").innerHTML = "Starting one hour timer";
 					setTimeout(function(){
+						document.getElementById("clockIn").style.visibility = "visible";
 						var endLat = pos.coords.latitude;
 						var endLon = pos.coords.longitude;
 						endDist = calcDistances(gymLat,gymLon,endLat,endLon);
