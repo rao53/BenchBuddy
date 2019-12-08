@@ -1,22 +1,46 @@
-<h1>Hi <%= name %> </h1>
-
 <html>
     <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script type="text/javascript" src="../BBLoginfunctions.js"></script>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <!-- BootStrap CSS -->
+	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+	    <!-- jQuery, Popper.js and BootStrap JS Plugins-->
+	    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+
+	    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+
+	    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+        <link rel="stylesheet" href="/css/myStyle.css" type="text/css"></link>
+        
+        <!--Font Awesome Library-->        
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <title>Bench Buddy</title>
+    <link rel = "icon" href = "dbell.png" type = "image/x-icon">
     </head>
-    <body>
+    <body class = "text-center">
+            
+        
+        <img class="mb-4 mt-2" src="dbell.png" alt="" width="150vw" height="150vh">
+        <h1>Hi <%= name %> </h1>
+        <div id = "initial message"><h3>Welcome to Bench Buddy. Please choose your action</h3> </div>
+
         <div id="clockIn">
-            <button onclick="calculateDistance()">Clock In</button>
+                <button class="btn btn-lg btn-primary btn-block mb-2 button-clockin" onclick="calculateDistance()"><i class="fa fa-clock-o"></i> Clock In</button>
         </div>
+
         <div id="locCheck">
         </div>
         <br>
-        <a class="btn btn-lg btn-primary btn-block mb-2 button-login" href="/leaderboard">Check Leaderboard</a>
+        <a class="btn btn-lg btn-primary btn-block mb-2 button-login" href="/leaderboard"> <i class="fa fa-flag-checkered"></i>  Check Leaderboard</a>
 
         <form action="/logout?_method=DELETE" method="POST" >
-            <button type="submit">Log Out</button>
+            <button class="btn btn-lg btn-primary btn-block mb-2 button-logout" type="submit"><i class="fa fa-power-off"></i>  Log Out</button>
         </form>
     </body>
 </html>
